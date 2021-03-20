@@ -1,0 +1,1 @@
+java -cp Hunters4k.jar D window
