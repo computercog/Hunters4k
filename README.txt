@@ -41,3 +41,13 @@ D:	Move right
 ESCAPE:	Quit the game
 MOVE MOUSE:	Turn around
 LEFT MOUSE BUTTON:	Shoot
+
+-------------
+-Source Code-
+-------------
+The source code included here is decompiled and not the origninal. The original source is gone so please keep in mind that the decompiled source is not exactly accurate to how the game was originally coded (longer, weird variable names, etc.). The point of the decompilation was to produce code that runs, not the exect source code that was originally written.
+
+--------
+-NOTICE-
+--------
+Everything here is copyright Markus "Notch" Persson.
