@@ -47,6 +47,14 @@ LEFT MOUSE BUTTON:	Shoot
 -------------
 The source code included here is decompiled and not the origninal. The original source is gone so please keep in mind that the decompiled source is not exactly accurate to how the game was originally coded (longer, weird variable names, etc.). The point of the decompilation was to produce code that runs, not the exect source code that was originally written.
 
+-----------------------
+-Changes (In progress)-
+-----------------------
+1) Add scaling support (50%)
+2) Add basic sound engine (0%)
+3) Update cursor drawing method (0%)
+4) MAYBE add ability to restart (0%)
+
 --------
 -NOTICE-
 --------
