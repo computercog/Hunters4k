@@ -111,8 +111,7 @@ public class D extends JFrame
                 char c = '\0';
                 int i6 = j1 - 32;
                 int j6 = k1 - 62;
-                int k6;
-                if((k6 = i6 * i6 + j6 * j6 * 32) < 128)
+                if((i6 * i6 + j6 * j6 * 32) < 128)
                 {
                     l4 = 0;
                     k5 = 0;
@@ -191,9 +190,8 @@ public class D extends JFrame
                             float f6 = af1[l6] - af1[0];
                             af2[l6] *= 0.95F;
                             af3[l6] *= 0.95F;
-                            float f9;
                             float f11;
-                            for(f11 = (f9 = (float)(f4 * f4 + f6 * f6 >= 40F ? (double)random.nextFloat() * 3.1415926535897931D * 2D : Math.atan2(f6, f4))) - af4[l6]; (double)f11 >= 3.1415926535897931D; f11 = (float)((double)f11 - 6.2831853071795862D));
+                            for(f11 = ((float)(f4 * f4 + f6 * f6 >= 40F ? (double)random.nextFloat() * 3.1415926535897931D * 2D : Math.atan2(f6, f4))) - af4[l6]; (double)f11 >= 3.1415926535897931D; f11 = (float)((double)f11 - 6.2831853071795862D));
                             for(; (double)f11 < -3.1415926535897931D; f11 = (float)((double)f11 + 6.2831853071795862D));
                             f11 = (float)((double)f11 + random.nextGaussian() * 2D);
                             for(af4[l6] += f11 * 0.8F; (double)af4[l6] >= 3.1415926535897931D; af4[l6] -= 6.2831853071795862D);
@@ -229,8 +227,7 @@ public class D extends JFrame
                         {
                             for(int l11 = -1; l11 <= 1; l11++)
                             {
-                                boolean flag1;
-                                if(flag1 = aflag[(l7 + i11) / 4 + ((i8 + l11) / 4) * 256 & 0xffff])
+                                if(aflag[(l7 + i11) / 4 + ((i8 + l11) / 4) * 256 & 0xffff])
                                     continue;
                                 f12 = 0.0F;
                                 if(i10 == 0)
@@ -265,7 +262,6 @@ public class D extends JFrame
                 {
                     int j11 = ((j10 + 1) / 2) * (j10 % 2 != 0 ? 1 : -1);
                     boolean flag = aflag[i7 + j11 + (k7 + i9) * 256 & 0xffff];
-                    boolean flag2 = false;
                     if(flag)
                         continue;
                     float f19 = 0.5F;
