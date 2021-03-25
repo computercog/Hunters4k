@@ -1,9 +1,3 @@
-/**
- * Created by Markus Persson in 2005 for the Java 4k Competition
- * 
- * Updated by Toby Davis
- */
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -15,9 +9,12 @@ import javax.swing.JFrame;
 
 public class D extends JFrame
 {
-	private static final long serialVersionUID = 1L;
-	
-	public D()
+	private static final int WIDTH = 160; //160
+	private static final int FRAME_HEIGHT = 120;  //110
+	private static final int VIEW_HEIGHT = 110;
+	private static final int SCALE = 2;
+
+    public D()
     {
     }
 
@@ -28,8 +25,8 @@ public class D extends JFrame
             a_boolean_array1d_static_fld[((KeyEvent)awtevent).getKeyCode()] = i == 401;
         if(i == 506 || i == 503)
         {
-            a_int_static_fld += ((MouseEvent)awtevent).getX() - 160;
-            a_java_awt_Robot_static_fld.mouseMove(160, 110);
+            a_int_static_fld += ((MouseEvent)awtevent).getX() - ((WIDTH * SCALE) /2);
+            a_java_awt_Robot_static_fld.mouseMove((WIDTH * SCALE) /2, (VIEW_HEIGHT * SCALE) /2); //centers in 3d viewport, not frame
         }
         if(i == 501)
             a_boolean_static_fld = true;
@@ -70,25 +67,18 @@ public class D extends JFrame
         java.awt.Image image = d.createImage(memoryimagesource);
         d.setUndecorated(true);
         a_java_awt_Robot_static_fld = new Robot();
-        
-        //the code below would run the game in fullscreen mode, however it was commented out after it was found that it just produces a white screen upon execution
-        //the game only works properly in windowed mode
-        
+        d.setSize(WIDTH * SCALE, FRAME_HEIGHT * SCALE);
+        d.setVisible(true);
         /*if(args.length == 0)
         {
             GraphicsDevice graphicsdevice;
-            (graphicsdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()).setFullScreenWindow(null);
+            (graphicsdevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()).setFullScreenWindow(d);
             graphicsdevice.setDisplayMode(new DisplayMode(320, 240, 16, 60));
         } else
         {
-        	d.setSize(320, 260);
+            d.setSize(320, 260);
             d.setVisible(true);
         }*/
-        d.setSize(320, 240); //removed from else statement and changed to remove white space
-        d.setVisible(true); //removed from else statement
-        //not sure if enabling the resizing function will do any good
-        //d.setResizable(false);
-        d.setTitle("Hunters4k"); //add title to window name
         Graphics g = d.getGraphics();
         int ai3[][] = new int[16][4096];
         for(int j1 = 0; j1 < 64; j1++)
@@ -144,7 +134,7 @@ public class D extends JFrame
 
         }
 
-        d.setCursor(1); //function is deprecated, needs to be updated/replaced/removed
+        d.setCursor(1);
         af[0] = 128.5F;
         af1[0] = 128.5F;
         long l1 = 0L;
@@ -152,7 +142,7 @@ public class D extends JFrame
         int i3 = 0;
         BufferedImage bufferedimage;
         Graphics g1;
-        (g1 = (bufferedimage = new BufferedImage(320, 260, 1)).getGraphics()).setFont(new Font("Sans-Serif", 1, 20));
+        (g1 = (bufferedimage = new BufferedImage(WIDTH * SCALE, FRAME_HEIGHT * SCALE, 1)).getGraphics()).setFont(new Font("Sans-Serif", 1, 10 * SCALE));
         int i4 = 100;
         int k4 = 0;
         float f = 1000000F;
@@ -394,12 +384,12 @@ public class D extends JFrame
                 if(k4 > 0)
                     k4--;
             }
-            memoryimagesource.newPixels();
-            g1.drawImage(image, 0, 0, null);
+            memoryimagesource.newPixels(); //graphics
+            g1.drawImage(image, 0, 0, WIDTH * SCALE, VIEW_HEIGHT * SCALE, null);
             g1.setColor(new Color(0x4a4138));
-            g1.fillRect(0, 220, 320, 20);
+            g1.fillRect(0, VIEW_HEIGHT * SCALE, WIDTH * SCALE, 10 * SCALE); //creates rectangle down from defined y position
             g1.setColor(new Color(0xdad4c6));
-            g1.drawString("Health: " + i4 + "    Score: " + k4, 8, 238);
+            g1.drawString("Health: " + i4 + "    Score: " + k4, 8, (FRAME_HEIGHT * SCALE) - (1 * SCALE));
             g.drawImage(bufferedimage, 0, 0, null);
             i3++;
             long l9;
