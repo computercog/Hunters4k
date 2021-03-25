@@ -9,8 +9,10 @@ import javax.swing.JFrame;
 
 public class D extends JFrame
 {
-	private static final int WIDTH = 160; //160
-	private static final int FRAME_HEIGHT = 120;  //110
+	private static final long serialVersionUID = 1L;
+	
+	private static final int WIDTH = 160;
+	private static final int FRAME_HEIGHT = 120;
 	private static final int VIEW_HEIGHT = 110;
 	private static final int SCALE = 2;
 
@@ -26,7 +28,7 @@ public class D extends JFrame
         if(i == 506 || i == 503)
         {
             a_int_static_fld += ((MouseEvent)awtevent).getX() - ((WIDTH * SCALE) /2);
-            a_java_awt_Robot_static_fld.mouseMove((WIDTH * SCALE) /2, (VIEW_HEIGHT * SCALE) /2); //centers in 3d viewport, not frame
+            a_java_awt_Robot_static_fld.mouseMove((WIDTH * SCALE) /2, (VIEW_HEIGHT * SCALE) /2);
         }
         if(i == 501)
             a_boolean_static_fld = true;
@@ -34,7 +36,8 @@ public class D extends JFrame
             a_boolean_static_fld = false;
     }
 
-    public static void main(String args[])
+    @SuppressWarnings("deprecation")
+	public static void main(String args[])
         throws Throwable
     {
         float af[] = new float[2000];
@@ -117,8 +120,7 @@ public class D extends JFrame
                 char c = '\0';
                 int i6 = j1 - 32;
                 int j6 = k1 - 62;
-                int k6;
-                if((k6 = i6 * i6 + j6 * j6 * 32) < 128)
+                if((i6 * i6 + j6 * j6 * 32) < 128)
                 {
                     l4 = 0;
                     k5 = 0;
@@ -150,8 +152,8 @@ public class D extends JFrame
         float f1 = 0.0F;
         do
         {
-            if(g1 != g1)
-                break;
+            /*if(g1 != g1)
+                break;*/
             Arrays.fill(a_float_array1d_static_fld, 16F);
             Arrays.fill(b, 16F);
             if(a_boolean_array1d_static_fld[27])
@@ -197,9 +199,8 @@ public class D extends JFrame
                             float f6 = af1[l6] - af1[0];
                             af2[l6] *= 0.95F;
                             af3[l6] *= 0.95F;
-                            float f9;
                             float f11;
-                            for(f11 = (f9 = (float)(f4 * f4 + f6 * f6 >= 40F ? (double)random.nextFloat() * 3.1415926535897931D * 2D : Math.atan2(f6, f4))) - af4[l6]; (double)f11 >= 3.1415926535897931D; f11 = (float)((double)f11 - 6.2831853071795862D));
+                            for(f11 = ((float)(f4 * f4 + f6 * f6 >= 40F ? (double)random.nextFloat() * 3.1415926535897931D * 2D : Math.atan2(f6, f4))) - af4[l6]; (double)f11 >= 3.1415926535897931D; f11 = (float)((double)f11 - 6.2831853071795862D));
                             for(; (double)f11 < -3.1415926535897931D; f11 = (float)((double)f11 + 6.2831853071795862D));
                             f11 = (float)((double)f11 + random.nextGaussian() * 2D);
                             for(af4[l6] += f11 * 0.8F; (double)af4[l6] >= 3.1415926535897931D; af4[l6] -= 6.2831853071795862D);
@@ -235,8 +236,7 @@ public class D extends JFrame
                         {
                             for(int l11 = -1; l11 <= 1; l11++)
                             {
-                                boolean flag1;
-                                if(flag1 = aflag[(l7 + i11) / 4 + ((i8 + l11) / 4) * 256 & 0xffff])
+                                if(aflag[(l7 + i11) / 4 + ((i8 + l11) / 4) * 256 & 0xffff])
                                     continue;
                                 f12 = 0.0F;
                                 if(i10 == 0)
@@ -271,7 +271,6 @@ public class D extends JFrame
                 {
                     int j11 = ((j10 + 1) / 2) * (j10 % 2 != 0 ? 1 : -1);
                     boolean flag = aflag[i7 + j11 + (k7 + i9) * 256 & 0xffff];
-                    boolean flag2 = false;
                     if(flag)
                         continue;
                     float f19 = 0.5F;
@@ -384,10 +383,10 @@ public class D extends JFrame
                 if(k4 > 0)
                     k4--;
             }
-            memoryimagesource.newPixels(); //graphics
+            memoryimagesource.newPixels();
             g1.drawImage(image, 0, 0, WIDTH * SCALE, VIEW_HEIGHT * SCALE, null);
             g1.setColor(new Color(0x4a4138));
-            g1.fillRect(0, VIEW_HEIGHT * SCALE, WIDTH * SCALE, 10 * SCALE); //creates rectangle down from defined y position
+            g1.fillRect(0, VIEW_HEIGHT * SCALE, WIDTH * SCALE, 10 * SCALE);
             g1.setColor(new Color(0xdad4c6));
             g1.drawString("Health: " + i4 + "    Score: " + k4, 8, (FRAME_HEIGHT * SCALE) - (1 * SCALE));
             g.drawImage(bufferedimage, 0, 0, null);
